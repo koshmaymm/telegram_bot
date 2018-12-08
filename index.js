@@ -17,7 +17,7 @@ bot.on('message', (msg) => {
   const text = msg.text;
 
   switch (text) {
-    case ('Hi' || 'Hello'):
+    case 'Hi':
         bot.sendMessage(chatId, `Hey ${nameAuthor}`);
         break;
 
