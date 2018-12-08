@@ -13,7 +13,24 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
 
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
-  console.log(msg.text);
-  
-  bot.sendMessage(chatId, `We will reply to your message "${msg.text}" in five minutes`);
+  const nameAuthor = msg.from.first_name;
+  const text = msg.text;
+
+  switch (text) {
+    case ('Hi' || 'Hello'):
+        bot.sendMessage(chatId, `Hey ${nameAuthor}`);
+        break;
+
+    case 'Hello':
+        bot.sendMessage(chatId, `Hello ${nameAuthor}`);
+        break;
+    
+    case 'Hey':
+        bot.sendMessage(chatId, `Hi ${nameAuthor}`);
+        break;
+
+    default:
+        bot.sendMessage(chatId, `${nameAuthor}, We will reply to your message "${msg.text}" in five minutes`)
+      break;
+  }
 });
